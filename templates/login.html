@@ -3,15 +3,15 @@
 
 {% block content %}
 <!--from inspired my TaskManager mini project-->
-<h3 class="center-align">Register</h3>
+<h3 class="center-align">Log In</h3>
 
 <div class="row">
-    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
+    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
         <div class="card-panel">
             <!-- username -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-signature prefix dark-blue-text text-darken-4"></i>
+                    <i class="fas fa-sign-in-alt prefix dark-blue-text text-darken-4"></i>
                     <input id="username" name="username" type="text" class="validate" pattern="^[a-zA-Z0-9]{5,20}$"
                         title="Alphabets and numbers only" required>
                     <label for="username">Username</label>
@@ -20,16 +20,16 @@
             <!-- passowrd -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-lock prefix blue-darken-text text-darken-4"></i>
+                    <i class="fas fa-key prefix blue-darken-text text-darken-4"></i>
                     <input id="password" name="password" type="password" class="validate" pattern=".{8,}"
                         title="Eight or more characters" required>
                     <label for="password">Password</label>
                 </div>
             </div>
-            <!-- register -->
+            <!-- Log in -->
             <div class="row">
                 <button type="submit" class="col s12 btn-large blue darken-4">
-                    Register <i class="fas fa-check-square"></i>
+                    LogIn <i class="fas fa-check-square"></i>
                 </button>
             </div>
         </div>
@@ -39,8 +39,8 @@
 <div class="row">
     <div class="col s12">
         <p class="center-align">
-            Already Registered?
-            <a href="{{ url_for('login') }}" class="text-darken-4">Log In</a>
+            Are you New Here?
+            <a href="{{ url_for('register') }}" class="text-darken-4">Register Account Here</a>
         </p>
     </div>
 </div>
