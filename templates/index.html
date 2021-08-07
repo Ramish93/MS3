@@ -2,7 +2,9 @@
 {% block content %}
 <h3 class="center-align">Your Profile</h3>
 <div class="row z-depth-4 ">
-    <form class="col s12" method="POST" action="">
+
+    <!--Form with self explainatory input fields-->
+    <form class="col s12" method="POST" action="{{ url_for('index') }} ">
         <div class="row">
             <div class="input-field col s6">
                 <input id="first_name" name="first_name" type="text" class="validate" required>
@@ -27,17 +29,17 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="education" name="education" type="password" class="validate" required>
+                <input id="education" name="education" type="text" class="validate" required>
                 <label for="education">Education:</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea id="textarea2" name="textarea2" class="materialize-textarea" data-length="350"
-                    required></textarea>
-                <label for="textarea2">Abour yourself:</label>
+                <textarea id="about" name="about" class="materialize-textarea" data-length="350" required></textarea>
+                <label for="about">About yourself:</label>
             </div>
         </div>
+        <!--Submits the data into db-->
         <div class="row">
             <button type="submit" class="col s12 btn-large blue darken-4">
                 Submit <i class="fas fa-check-square"></i>
@@ -45,6 +47,7 @@
         </div>
     </form>
 </div>
+<!-- User stories to help first time user-->
 <h4 class="center-align margin">Our Happy users</h4>
 <div class="row">
     <div class="col s12 m6">
@@ -94,25 +97,7 @@
             </div>
         </div>
     </div>
-
 </div>
-<footer class="page-footer blue">
-    <div class="container">
-        <div class="row">
-            <div class="col l6 s12">
-                <h6 class="white-text">Contact Us via Email</h6>
-            </div>
-            <div class="col l6 s12">
-                <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" class="white-text">email@cvproducer.org
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="footer-copyright">
-        <div class="container">
-            © 2021 Copyright of cvproducer.inc
-        </div>
-    </div>
-</footer>
+
 
 {% endblock %}

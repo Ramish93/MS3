@@ -70,7 +70,24 @@ def login():
 @app.route('/')
 @app.route("/index", methods=["GET", "POST"])
 def index():
+    if request.method == 'POST':
+        user_data = {
+            'first_name': request.form.get('first_name'),
+            'last_name' : request.form.get('last_name'),
+            'dob' : request.form.get('dob'),
+            'email' : request.form.get('email'),
+            'education' : request.form.get('education'),
+            'about' : request.form.get('about')
+        }
+        mongo.db.user_info.insert(user_data)
+        flash('Resume successfully saved and is ready for preview')
+        return redirect (url_for('download'))
     return render_template("index.html")
+
+
+@app.route('/download')
+def download():
+    return render_template('download.html')
 
 
 @app.route('/logout')
