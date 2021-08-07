@@ -2,39 +2,40 @@
 {% block content %}
 <h3 class="center-align">Your Profile</h3>
 <div class="row z-depth-4 ">
-    <form class="col s12">
+    <form class="col s12" method="POST" action="">
         <div class="row">
             <div class="input-field col s6">
-                <input id="first_name" name="first_name" type="text" class="validate">
+                <input id="first_name" name="first_name" type="text" class="validate" required>
                 <label for="first_name">First Name:</label>
             </div>
             <div class="input-field col s6">
-                <input id="last_name" name="last_name" type="text" class="validate">
+                <input id="last_name" name="last_name" type="text" class="validate" required>
                 <label for="last_name">Last Name:</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="dob" name="dob" type="email" class="validate">
+                <input id="dob" name="dob" type="text" class="validate datepicker" required>
                 <label for="dob">DOB:</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="email" name="email" type="email" class="validate">
+                <input id="email" name="email" type="email" class="validate" required>
                 <label for="email">Email:</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="education" name="education" type="password" class="validate">
+                <input id="education" name="education" type="password" class="validate" required>
                 <label for="education">Education:</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea id="textarea2" class="materialize-textarea" data-length="250"></textarea>
-                <label for="textarea2">Textarea:</label>
+                <textarea id="textarea2" name="textarea2" class="materialize-textarea" data-length="350"
+                    required></textarea>
+                <label for="textarea2">Abour yourself:</label>
             </div>
         </div>
         <div class="row">
