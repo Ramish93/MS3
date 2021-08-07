@@ -1,9 +1,117 @@
 {% extends 'base.html' %}
 {% block content %}
+<h3 class="center-align">Your Profile</h3>
+<div class="row z-depth-4 ">
+    <form class="col s12">
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="first_name" name="first_name" type="text" class="validate">
+                <label for="first_name">First Name:</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="last_name" name="last_name" type="text" class="validate">
+                <label for="last_name">Last Name:</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="dob" name="dob" type="email" class="validate">
+                <label for="dob">DOB:</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="email" name="email" type="email" class="validate">
+                <label for="email">Email:</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="education" name="education" type="password" class="validate">
+                <label for="education">Education:</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="textarea2" class="materialize-textarea" data-length="250"></textarea>
+                <label for="textarea2">Textarea:</label>
+            </div>
+        </div>
+        <div class="row">
+            <button type="submit" class="col s12 btn-large blue darken-4">
+                Submit <i class="fas fa-check-square"></i>
+            </button>
+        </div>
+    </form>
+</div>
+<h4 class="center-align margin">Our Happy users</h4>
+<div class="row">
+    <div class="col s12 m6">
+        <div class="card-panel blue lighten-5 z-depth-2">
+            <div class="row valign-wrapper">
+                <div class="col s2">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa-jhSDxlYIDyw2Iw01knRivUmLn-t1HrpG2cCw1A9nbahrbDV1KGzTP9nzvOT5xk_eSA&usqp=CAU"
+                        alt="img of a guy" class="circle responsive-img"> <!-- notice the "circle" class -->
+                </div>
+                <div class="col s10">
+                    <span class="black-text">
+                        OMG, best site to produce CV everrr!!!
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m6 ">
+        <div class="card-panel blur lighten-5 z-depth-2">
+            <div class="row valign-wrapper">
+                <div class="col s2">
+                    <img src="https://p0.pikist.com/photos/250/896/person-gitl-young-woman-portrait-head-face-ivy-black.jpg"
+                        alt="img of a girl" class="circle responsive-img"> <!-- notice the "circle" class -->
+                </div>
+                <div class="col s10">
+                    <span class="black-text">
+                        Easy to use, efficient
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 m6 offset-m3 l6 offset-l3">
+        <div class="card-panel grey lighten-5 z-depth-2">
+            <div class="row valign-wrapper">
+                <div class="col s2">
+                    <img src="https://www.unitedagents.co.uk/sites/default/files/thumbnails/image/guybolton-photo-deadline.jpg"
+                        alt="img of a guy" class="circle responsive-img"> <!-- notice the "circle" class -->
+                </div>
+                <div class="col s10">
+                    <span class="black-text">
+                        easy to use, friendly easy to navigate UI.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
 
-{% for info in user_info %}
-{{ info.last }} <br>
-{{ info.dob }}
-{% endfor %}
+</div>
+<footer class="page-footer blue">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h6 class="white-text">Contact Us via Email</h6>
+            </div>
+            <div class="col l6 s12">
+                <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" class="white-text">email@cvproducer.org
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2021 Copyright of cvproducer.inc
+        </div>
+    </div>
+</footer>
 
 {% endblock %}

@@ -17,19 +17,11 @@ app.secret_key = os.environ.get('SECRET_KEY')
 
 mongo = PyMongo(app)
 
-
-@app.route('/')
-@app.route('/index.html')
-def index():
-    user_info = mongo.db.user_info.find()
-    return render_template('index.html', user_info=user_info)
-
-
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == 'POST':
         # checks if name exists in database
-        name_exists = mongo.db.user_login.find_one(
+        name_exists = mongo.db.user_logins.find_one(
             {'username': request.form.get('username').lower()})
  
         if name_exists:
@@ -44,6 +36,7 @@ def register():
         # puts new user into session
         session['user'] = request.form.get('username').lower() 
         flash('Registration was successful')
+        return redirect(url_for('index', username=session['user']))
     return render_template("register.html")
 
 
@@ -60,8 +53,9 @@ def login():
                 name_exists["password"], request.form.get('password')):
                     session["user"] = request.form.get('username').lower()
                     flash('Welcome Again!')
+                    return redirect(url_for('index', username=session['user']))
             else:
-                # if invalid password 
+                # if invalid password
                 flash('Incorrect Username and/or Password')
                 return redirect(url_for("login"))
 
@@ -71,6 +65,20 @@ def login():
             return redirect(url_for('login'))
 
     return render_template("login.html")
+
+
+@app.route('/')
+@app.route("/index", methods=["GET", "POST"])
+def index():
+    return render_template("index.html")
+
+
+@app.route('/logout')
+def logout():
+    # removes session for user
+    session.clear()
+    flash("You're logged out")
+    return redirect(url_for('login'))
 
 
 if __name__ == '__main__':
