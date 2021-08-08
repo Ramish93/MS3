@@ -116,6 +116,10 @@ I wanted to make first-time user see what this web-app is about without reading 
 * Materialize - A mobile-first responsive library used to construct various parts of the project, including the Navbar, Modal Forms.
 * FontAwesome - Used frequently for icons used throughout the website
 * Miro - used for the creation of wireframes
+* flask - library used for python file.
+* flask_pymongo - used for connecting flask with mondo db
+* bson - for data structure in data-base
+* werkzueg - for security of password and hashing.
 #### Version Control:
 - [Github](https://github.com/) - Used to store the code and use of Github Pages to deploy the website. 
 - [Gitpod](https://gitpod.io/) - Used as the version control IDE for writing code and to further commit and push code to Gihub.
@@ -127,29 +131,9 @@ I wanted to make first-time user see what this web-app is about without reading 
 - [AmIResponsive](http://ami.responsivedesign.is/) - Used to check how the responsiveness of the website looks in different devices- available at the top of this [README](). 
 * [Google Mobile Friendly Test](https://search.google.com/test/mobile-friendly) - Used to test all pages on a mobile device
 - [Youtube](https://www.youtube.com/) - Used for help in adding a favicon.
-- [BBC.com plant based diet](https://www.bbc.com/news/science-environment-49238749) - Used for help adding content for plant based diet.
-* [University of Taxes Cancer Center](https://www.mdanderson.org/publications/focused-on-health/5-benefits-of-a-plant-based-diet.h20-1592991.html) - Used for help adding content Healthy and strong lifestyle.
-* [Gresy spoon cafe](https://www.greasyspoon.se/) - Used for help adding content and location of where we do meet-ups.
----
+
 ### __Bugs and fixes:__
-* My hero image was too bright and the text wasn't clear. i was using opacity on image and then is used linear-gradient technology as follow: 
 
-  __background:linear-gradient(
-      rgba(0, 0, 0, 0.1),
-      rgba(0, 0, 0, 0.1)
-    ),
-    url("images/cleanearth.jpeg") no-repeat;
-    background-position: center;
-    overflow: hidden;__
-
-and the image became dark as i wanted it to be.
-* My Importance section and Feedback sections were merging into each other in mobile view but on desktop they were as i wanted them to be. I searched online on youtube, StackOverFlow and W3School i checked my Css file 
-to fix the bug. The videos and StackOverFlow helped me figure out the problem which was that i gave Importance Container a fixed height which was causing the merging of content.
-* My cover-text was mixing with the heading and text of jumbotron in some mobile views and ipad view i added media quries to fix it but its still not fixed in a few mobile views.
-* In mobile view my Importance section was centered aligned with alot of padding on right side which was not something i liked so i add no-gutters class and changed the col-10 offset-1 in small screen view to col-12.
-* On the meet-up page the hero image took some time to load which was because of the size of the image was too large and causing this delay. The filesize of the downloaded image was over 3900kb so I changed for another image.
-* My form was not validating. upon clicking submit button nothing was happening despite of giving it required attribute. upon checking online on [code acadmey form submit](https://www.codecademy.com/courses/learn-html/lessons/html-form-validation/exercises/required) it was my silly mistake of not adding type="submit" to my button.
----
 ### __Unfixed bugs__:
 * On mobile devises the cover-text container is not showing its full text. it is convaying the information it is intended to but the full text if not visible. I tried to fix it in many ways but everytime i ended up disfiguring some other part of that section. I will however, keep on trying to figure it out.
 * Social media icons are not responding at different screen widths as i want them to. They change size when viewed on xl-screen and on xs-screens but i would like them in medium size in medium screen size, which i was unable to figure out how to do. Pretty sure its my some silly mistake.
@@ -169,8 +153,8 @@ deploying website as intended but when we zoom out in Iphone 12ProMax it shows a
 
 ---
 ### __Testing__:
-* Form and Modal are tested. If we press the submit button without putting any information in fields the response should be 'Please fill out this field'. it was checked acress different Android Mobiles and tablets and Apple Mobile and tablets.
-* All the links in across all three pages take the user to desired location and they open in another tab. They also get highlighted and underlined when hovered and they also have different colors than regular text to make user see them with ease.
+* Forms are tested. If we press the submit button without putting any information in fields the response should be 'Please fill out this field'. it was checked acress different Android Mobiles and tablets and Apple Mobile and tablets.
+* All the links in across all three pages take the user to desired location and they open in another page. 
 * The website is tested in __Android__: Samsung Note 3, Note 4, Galexy S8,S9 Moto 4G, Pixel 2 and 2XL, and __Apple__: Iphone 4,5,6,7,8 and X as well as Ipad and Ipad pro.
 
 * To ensure that the website is responsive across all pages i used. [Google Mobile Friendly Test](https://search.google.com/test/mobile-friendly?utm_source=gws&utm_medium=onebox&utm_campaign=suit). And the result is fully responsive.
@@ -205,7 +189,8 @@ ___
 * Gitpod is a cloud based version control software which is used to write all of the code for this project.
 * It was added commited and pushed in the terminal to Github where it is stored in a repository.
 * Under "Settings", I scrolled down to Github Pages and selected "Master Branch", to where the page was automated.
-* When it was selected, the project was pushed to Github pages and the URL is then displayed and on clicking it it brings to the weblink.
+* A heroku profile was created and after some configuration it was set to automatically update with github.
+* Mongo DB, a data-base was created for cv project and it was linked to python file named app.py with help of pymongo library.
 * The code can be run locally by selecting "clone" which provides an URL you can use on your local computer or "download" option where one can download the zip file on your computer.
 
 To work on this project with local IDE like VScode etc:
@@ -220,16 +205,13 @@ To work on this project with local IDE like VScode etc:
 ## Credits
 
 ### Content
-* The text for sections was inspired and edited from the website, [BBC.com plant based diet](https://www.bbc.com/news/science-environment-49238749),
-[University of Taxes Cancer Center](https://www.mdanderson.org/publications/focused-on-health/5-benefits-of-a-plant-based-diet.h20-1592991.html), [Gresy spoon cafe](https://www.greasyspoon.se/).
+* The content of website is added with materializecss and most of the HTML code is pasted from it. 
 
 ### Media
-* The photos in this website were downloaded from Pexels and Unsplash.
+* The nav-bar and form elements are from materailze and the icons are imported from fontawsome.
 
 ### Acknowledgements
 
-* The idea of this project was inspired because of growth in knowledge and responsibility of people to change the environment to help earth heal, to do something themselves with their own hands which will make them feel good
- and to make changes in their life style to live a healthy life. This plat-form is to give 
-them a push start and to persue people who already want this change to start it.
+* the idea of the project is concieved by using the technologies learnt and trying to applying them in a realistic world app with easy userinterface and easy navigation. CV producer is a web-app which will take user input and convert it into cv pdf.
 * My Mentor, **Nishant Kumar**, for his guidance, help and advising me to understand what kind of design is better for user.
 * Tutor Support, for their efforts support, all the time and great atitude.
