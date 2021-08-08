@@ -35,14 +35,32 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea id="about" name="about" class="materialize-textarea" data-length="350" required></textarea>
+                <input id="skills" name="skills" type="text" class="validate" required>
+                <label for="skills">Skills:</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="experience" name="experience" type="text" class="validate" required>
+                <label for="experience">Previous Experience:</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="linkdin" name="linkdin" type="text" class="validate" required>
+                <label for="linkdin">Linkdin:</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="about" name="about" class="materialize-textarea" data-length="350"></textarea>
                 <label for="about">About yourself:</label>
             </div>
         </div>
         <!--Submits the data into db-->
-        <div class="row">
-            <button type="submit" class="col s12 btn-large blue darken-4">
-                Submit <i class="fas fa-check-square"></i>
+        <div class="row ">
+            <button type="submit" class="col s4 offset-s4 btn-large blue darken-4">
+                Enter <i class="fas fa-check-square"></i>
             </button>
         </div>
     </form>

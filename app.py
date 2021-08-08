@@ -77,6 +77,9 @@ def index():
             'dob' : request.form.get('dob'),
             'email' : request.form.get('email'),
             'education' : request.form.get('education'),
+            'skills': request.form.get('skills'),
+            'experience': request.form.get('experience'),
+            'linkdin': request.form.get('linkdin'),
             'about' : request.form.get('about')
         }
         mongo.db.user_info.insert(user_data)
