@@ -17,6 +17,7 @@ app.secret_key = os.environ.get('SECRET_KEY')
 
 mongo = PyMongo(app)
 
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == 'POST':
@@ -26,7 +27,7 @@ def register():
  
         if name_exists:
             flash('User-Name already exists, please choose another name')
-            return redirect (url_for('register'))
+            return redirect(url_for('register'))
 
         register = {
             'username': request.form.get('username').lower(),
@@ -109,9 +110,32 @@ def cv_preview():
 
 @app.route('/edit_cv/<user_info_id>', methods=['GET', 'POST'])
 def edit_cv(user_info_id):
+    if request.method == 'POST':
+        info_update = {
+            'first_name': request.form.get('first_name'),
+            'last_name': request.form.get('last_name'),
+            'dob': request.form.get('dob'),
+            'email': request.form.get('email'),
+            'education': request.form.get('education'),
+            'skills': request.form.get('skills'),
+            'experience': request.form.get('experience'),
+            'linkdin': request.form.get('linkdin'),
+            'about': request.form.get('about')
+        }
+        mongo.db.user_info.update({'_id': ObjectId(user_info_id)},info_update)
+        flash('Resume successfully updated')
+
     info = mongo.db.user_info.find_one({'_id': ObjectId(user_info_id)})
 
     return render_template("edit_info.html", info=info)
+
+
+@app.route('/delet_info/<user_info_id>')
+def delet_info(user_info_id):
+    mongo.db.user_info.remove({'_id': ObjectId(user_info_id)})
+    flash('Field successfully Deleted')
+    return redirect(url_for('download.html'))
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
