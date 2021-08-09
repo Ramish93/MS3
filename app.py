@@ -73,18 +73,18 @@ def index():
     if request.method == 'POST':
         user_data = {
             'first_name': request.form.get('first_name'),
-            'last_name' : request.form.get('last_name'),
-            'dob' : request.form.get('dob'),
-            'email' : request.form.get('email'),
-            'education' : request.form.get('education'),
+            'last_name':request.form.get('last_name'),
+            'dob': request.form.get('dob'),
+            'email': request.form.get('email'),
+            'education': request.form.get('education'),
             'skills': request.form.get('skills'),
             'experience': request.form.get('experience'),
             'linkdin': request.form.get('linkdin'),
-            'about' : request.form.get('about')
+            'about': request.form.get('about')
         }
         mongo.db.user_info.insert(user_data)
         flash('Resume successfully saved and is ready for preview')
-        return redirect (url_for('download'))
+        return redirect(url_for('download'))
     return render_template("index.html")
 
 
@@ -99,6 +99,7 @@ def logout():
     session.clear()
     flash("You're logged out")
     return redirect(url_for('login'))
+
 
 @app.route("/cv_preview")
 def cv_preview():

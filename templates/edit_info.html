@@ -7,59 +7,66 @@
     <form class="col s12" method="POST" action="{{ url_for('edit_info', user_info_id=user_info._id) }} ">
         <div class="row">
             <div class="input-field col s6">
-                <input id="first_name" name="first_name" type="text" class="validate" required>
+                <input id="first_name" name="first_name" type="text" class="validate" value="{{info.info_first_name}}"
+                    required>
                 <label for="first_name">First Name:</label>
             </div>
             <div class="input-field col s6">
-                <input id="last_name" name="last_name" type="text" class="validate" required>
+                <input id="last_name" name="last_name" type="text" class="validate" value="{{info.last_name}}" required>
                 <label for="last_name">Last Name:</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="dob" name="dob" type="text" class="validate datepicker" required>
+                <input id="dob" name="dob" type="text" class="validate datepicker" value="{{info.dob}}" required>
                 <label for="dob">DOB:</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="email" name="email" type="email" class="validate" required>
+                <input id="email" name="email" type="email" class="validate" value="{{info.email}}" required>
                 <label for="email">Email:</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="education" name="education" type="text" class="validate" required>
+                <input id="education" name="education" type="text" class="validate" value="{{info.education}}" required>
                 <label for="education">Education:</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="skills" name="skills" type="text" class="validate" required>
+                <input id="skills" name="skills" type="text" class="validate" value="{{info.skills}}" required>
                 <label for="skills">Skills:</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="experience" name="experience" type="text" class="validate" required>
+                <input id="experience" name="experience" type="text" class="validate" value="{{info.experience}}"
+                    required>
                 <label for="experience">Previous Experience:</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="linkdin" name="linkdin" type="text" class="validate" required>
+                <input id="linkdin" name="linkdin" type="text" class="validate" value="{{info.linkedin}}" required>
                 <label for="linkdin">Linkdin:</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea id="about" name="about" class="materialize-textarea" data-length="350"></textarea>
+                <textarea id="about" name="about" class="materialize-textarea"
+                    data-length="350">{{- info.about -}} </textarea>
                 <label for="about">About yourself:</label>
             </div>
         </div>
         <!--Submits the data into db-->
         <div class="row ">
-            <button type="submit" class="col s4 offset-s4 btn-large blue darken-4">
+            <!-- cancel and return to preview -->
+            <a href="{{ url_for('cv_preview') }}" class="btn-large red col s4 offset-s1">
+                Cancel <i class="fas fa-times-circle right"></i>
+            </a>
+            <button type="submit" class="col s4 offset-s1 btn-large blue darken-4">
                 Edit <i class="fas fa-edit"></i>
             </button>
         </div>
