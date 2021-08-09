@@ -90,7 +90,7 @@ def index():
 
 @app.route('/download')
 def download():
-    return render_template('download.html')
+    return render_template("download.html")
 
 
 @app.route('/logout')
@@ -100,6 +100,17 @@ def logout():
     flash("You're logged out")
     return redirect(url_for('login'))
 
+@app.route("/cv_preview")
+def cv_preview():
+    preview = list(mongo.db.user_info.find())
+    return render_template("cv_preview.html", preview=preview)
+
+
+@app.route('/edit_cv/<user_info_id>', methods=['GET', 'POST'])
+def edit_cv(user_info_id):
+    info = mongo.db.user_info.find_one({'_id': ObjectId(user_info_id)})
+
+    return render_template("edit_info.html", info=info)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

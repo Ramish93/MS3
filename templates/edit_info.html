@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-<h3 class="center-align">Your Profile</h3>
+<h3 class="center-align">Edit Info</h3>
 <div class="row z-depth-4 ">
 
     <!--Form with self explainatory input fields-->
-    <form class="col s12" method="POST" action="{{ url_for('index') }} ">
+    <form class="col s12" method="POST" action="{{ url_for('edit_info', user_info_id=user_info._id) }} ">
         <div class="row">
             <div class="input-field col s6">
                 <input id="first_name" name="first_name" type="text" class="validate" required>
@@ -60,66 +60,12 @@
         <!--Submits the data into db-->
         <div class="row ">
             <button type="submit" class="col s4 offset-s4 btn-large blue darken-4">
-                Enter <i class="fas fa-check-square"></i>
+                Edit <i class="fas fa-edit"></i>
             </button>
         </div>
     </form>
 </div>
 
-<div></div>
 
-<!-- User stories to help first time user-->
-<div class="row z-depth-4">
-    <h4 class="center-align margin">Our Happy users</h4>
-    <div class="row">
-        <div class="col s12 m6">
-            <div class="card-panel blue lighten-5 z-depth-2">
-                <div class="row valign-wrapper">
-                    <div class="col s2">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa-jhSDxlYIDyw2Iw01knRivUmLn-t1HrpG2cCw1A9nbahrbDV1KGzTP9nzvOT5xk_eSA&usqp=CAU"
-                            alt="img of a guy" class="circle responsive-img">
-                    </div>
-                    <div class="col s10">
-                        <span class="black-text">
-                            OMG, best site to produce CV everrr!!!
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col s12 m6 ">
-            <div class="card-panel blur lighten-5 z-depth-2">
-                <div class="row valign-wrapper">
-                    <div class="col s2">
-                        <img src="https://p0.pikist.com/photos/250/896/person-gitl-young-woman-portrait-head-face-ivy-black.jpg"
-                            alt="img of a girl" class="circle responsive-img">
-                    </div>
-                    <div class="col s10">
-                        <span class="black-text">
-                            Easy to use, efficient
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col s12 m6 offset-m3 l6 offset-l3">
-            <div class="card-panel grey lighten-5 z-depth-2">
-                <div class="row valign-wrapper">
-                    <div class="col s2">
-                        <img src="https://www.unitedagents.co.uk/sites/default/files/thumbnails/image/guybolton-photo-deadline.jpg"
-                            alt="img of a guy" class="circle responsive-img">
-                    </div>
-                    <div class="col s10">
-                        <span class="black-text">
-                            easy to use, friendly easy to navigate UI.
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 {% endblock %}
