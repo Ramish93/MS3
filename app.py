@@ -1,10 +1,11 @@
 import os
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, session, url_for, make_response)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+import pdfkit
 if os.path.exists("env.py"):
     import env
 
@@ -47,14 +48,13 @@ def login():
         # checks if name exists
         name_exists = mongo.db.user_logins.find_one(
             {"username": request.form.get("username").lower()})
-
+        password = request.form.get('password')
         if name_exists:
             # ensure hashed password matches user input
-            if check_password_hash(
-                name_exists["password"], request.form.get('password')):
-                    session["user"] = request.form.get('username').lower()
-                    flash('Welcome Again!')
-                    return redirect(url_for('index', username=session['user']))
+            if check_password_hash(name_exists["password"], password):
+                session["user"] = request.form.get('username').lower()
+                flash('Welcome Again!')
+                return redirect(url_for('index', username=session['user']))
             else:
                 # if invalid password
                 flash('Incorrect Username and/or Password')
@@ -74,7 +74,7 @@ def index():
     if request.method == 'POST':
         user_data = {
             'first_name': request.form.get('first_name'),
-            'last_name':request.form.get('last_name'),
+            'last_name': request.form.get('last_name'),
             'dob': request.form.get('dob'),
             'email': request.form.get('email'),
             'education': request.form.get('education'),
@@ -102,10 +102,10 @@ def logout():
     return redirect(url_for('login'))
 
 
-@app.route("/cv_preview")
-def cv_preview():
-    preview = list(mongo.db.user_info.find())
-    return render_template("cv_preview.html", preview=preview)
+@app.route("/cv_preview/<user_info_id>")
+def cv_preview(user_info_id):
+    info = list(mongo.db.user_info.find_one({'_id': ObjectId(user_info_id)}))
+    return render_template("cv_preview.html", info=info)
 
 
 @app.route('/edit_cv/<user_info_id>', methods=['GET', 'POST'])
@@ -122,7 +122,7 @@ def edit_cv(user_info_id):
             'linkdin': request.form.get('linkdin'),
             'about': request.form.get('about')
         }
-        mongo.db.user_info.update({'_id': ObjectId(user_info_id)},info_update)
+        mongo.db.user_info.update({'_id': ObjectId(user_info_id)}, info_update)
         flash('Resume successfully updated')
 
     info = mongo.db.user_info.find_one({'_id': ObjectId(user_info_id)})
@@ -135,6 +135,21 @@ def delet_info(user_info_id):
     mongo.db.user_info.remove({'_id': ObjectId(user_info_id)})
     flash('Field successfully Deleted')
     return redirect(url_for('download.html'))
+
+
+# @app.route('/<first_name>/<last_name>/<dob>/<email>/<education>/<skills>/<experience>/<about>')
+# def pdf_gen(first_name, last_name, dob,email, education, skills, experience, about):
+#     render = render_template('cv_preview.html',first_name=first_name,
+#         last_name=last_name,dob=dob, email = email, education =education,
+#             skills=skills, experience = experience, about=about )
+
+#     pdf = pdfkit.from_string(render, False)
+
+#     responce = make_response(pdf)
+    # responce.headers['content-type'] = 'application/pdf'
+    # responce.headers['content-disposition'] = 'inline; filename = cv.pdf'
+
+    # return responce
 
 
 if __name__ == '__main__':
