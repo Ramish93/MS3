@@ -29,7 +29,7 @@
                     <li><a href="{{ url_for('index') }}">Home</a></li>
                     <li><a href="{{ url_for('logout') }} ">Logout</a></li>
                     <li><a href="{{ url_for('download') }}">Download</a></li>
-                    <li><a href="{{ url_for('cv_preview') }}">Preview</a></li>
+                    <li><a href="{{ url_for('cv_preview', user_info_id='61112fe729f4533b1e36b90a')}}">Preview</a></li>
                     {%else%}
                     <li><a href="{{ url_for('register') }}">Register</a></li>
                     <li><a href="{{ url_for('login') }} ">Login</a></li>
@@ -47,7 +47,7 @@
             <li><a href="{{ url_for('index') }}">Home</a></li>
             <li><a href="{{ url_for('logout') }} ">Logout</a></li>
             <li><a href="{{ url_for('download') }}">Download</a></li>
-            <li><a href="{{ url_for('cv_preview') }}">Preview</a></li>
+            <li><a href="{{ url_for('cv_preview', user_info_id='61112fe729f4533b1e36b90a')}}">Preview</a></li>
             {%else%}
             <li><a href="{{ url_for('register') }} ">Register</a></li>
             <li><a href="{{url_for('login')}} ">Login</a></li>
