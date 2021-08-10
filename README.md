@@ -1,8 +1,8 @@
- ![Image of website landing page](/imagesmd/website.png?raw=true "Title")
+ ![Image of website landing page](images/imagelanding.png?raw=true "Title")
 # CV Producer
 ## project name and summry of concept
 * As i am learning new technologies with the course it getting easier to use those technologies and make something useful with them on the web. so this project is a reflection of that. this is a simple site that takes user data from input fields provided and then save it in MongoDB with is a data-base and then on user commands it edits delets or updated that data user already inserted.
-## view live website [here.](https://ramish93.github.io/HealthyEarth/)
+## view live website [here.]()
 ---
 ## Table of Content:
 - [Overview](#overview)
@@ -133,23 +133,11 @@ I wanted to make first-time user see what this web-app is about without reading 
 - [Youtube](https://www.youtube.com/) - Used for help in adding a favicon.
 
 ### __Bugs and fixes:__
+![image of preview page](images/bugpreviewpage.png?raw=true "Title")
+* the preview page was not showing the data from mongo DB so user didn't have option to edit or delet it.
 
 ### __Unfixed bugs__:
-* On mobile devises the cover-text container is not showing its full text. it is convaying the information it is intended to but the full text if not visible. I tried to fix it in many ways but everytime i ended up disfiguring some other part of that section. I will however, keep on trying to figure it out.
-* Social media icons are not responding at different screen widths as i want them to. They change size when viewed on xl-screen and on xs-screens but i would like them in medium size in medium screen size, which i was unable to figure out how to do. Pretty sure its my some silly mistake.
-* Website is on its full width on all devices provided by chrome-dev-tools but it came to my attention in last hour that its showing some side left-out space in iphone 11 and above. Since they are not provided by dev-tools so i didn't know about it earlier. here are the screenshots of both Iphone 12Pro Max and Samsung Note10+. Note 10 is 
-deploying website as intended but when we zoom out in Iphone 12ProMax it shows a side zoom. i added viewport size in head of my Html but it is not working. This shows the importance of checking website across different devices.
-* On Samsung Note 10 Plus:
-
- ![Image of website on Samsung note 10 plus](/imagesmd/note10.jpeg?raw=true "Title")
-
-* On Iphone 12 Pro Max:
-
- ![Image of website on Iphone 12 Pro Max](/imagesmd/iphone12.jpeg?raw=true "Title")
-
- 
-
-
+* 
 
 ---
 ### __Testing__:
@@ -159,27 +147,33 @@ deploying website as intended but when we zoom out in Iphone 12ProMax it shows a
 
 * To ensure that the website is responsive across all pages i used. [Google Mobile Friendly Test](https://search.google.com/test/mobile-friendly?utm_source=gws&utm_medium=onebox&utm_campaign=suit). And the result is fully responsive.
 * Landing page,
- ![mobile friendly page 1](/imagesmd/pagevalidate1.png?raw=true "Title")
-* health page:
- ![mobile friendly page 2](/imagesmd/pagevalidate2.png?raw=true "Title")
-* Meetup page:
- ![mobile friendly page 3](/imagesmd/pagevalidate3.png?raw=true "Title")
- * For responsiveness across all devices the website [AmIResponsive](http://ami.responsivedesign.is/) is used. And result is.
-  ![Amiresponsive result](/imagesmd/amiresponsive.png?raw=true "Title")
+ ![mobile friendly Landing page](images/responsivelogin.png?raw=true "Title")
 
-* For Html validation W3 Validator was used, click link to see result. [W3 Html validator](https://validator.w3.org/nu/?doc=https%3A%2F%2F8000-dd61392f-e80b-4db4-a829-cf89f148345b.ws-eu03.gitpod.io%2Findex.html).
-* Css validator was used to validate css, click link to see result. [W3 Css validator](https://jigsaw.w3.org/css-validator/validator)
+* Mobile friendly Login page:
+ ![mobile friendly login](images/responsivelogin.png?raw=true "Title")
+* Register page:
+ ![mobile friendly Register](images/responsiveregister.png?raw=true "Title")
+
+* These three are shown here rest of them are also complety mobile friendly.
+ * For responsiveness across all devices the website [AmIResponsive](http://ami.responsivedesign.is/) is used. And result is.
+  ![Amiresponsive result](images/amiresponsive.png?raw=true "Title")
+
+* HTML or CSS validator were used but because of jinja syntax they were giving alot of errors. There was no point of removing jinja and then validating the pages.
 
 ### Wireframes:
-*  Please click the link to download PDF: ![WireFreames](/wireframes/wireframe.pdf?raw=true "Title")
+*  Please click the link to download PDF: ![WireFreames](wireframes/ms3wireframe.pdf?raw=true "Title")
 - Landing Page:
- ![Wireframe of page 1](/wireframes/page1.png?raw=true "Title")
+ ![Wireframe of Landing page](wireframes/wireframelanding.png?raw=true "Title")
 
-- Healthy diet Page:
- ![Wireframe of page 2](/wireframes/page2.png?raw=true "Title")
+- Wireframe login page:
+ ![Wireframe of login page](wireframes/wireframelogin.png?raw=true "Title")
 
-- Meetup Page:
- ![Wireframe of page 3](/wireframes/page3.png?raw=true "Title")
+- Wireframe Register page:
+ ![Wireframe of Landing page](wireframes/wireframeregister.png?raw=true "Title")
+
+ - Wireframe Download CV page:
+  ![Wireframe of Landing page](wireframes/wireframedownload.png?raw=true "Title")
+
 
 
 ___
@@ -194,7 +188,7 @@ ___
 * The code can be run locally by selecting "clone" which provides an URL you can use on your local computer or "download" option where one can download the zip file on your computer.
 
 To work on this project with local IDE like VScode etc:
-* Follow this link to [Healthy Earth Healthy Us!](https://ramish93.github.io/HealthyEarth/).
+* Follow this link to [CV producer](https://github.com/Ramish93/MS3.git).
 * Under the Repo name choose "Clone or Download".
 * Copy URL in HTTP section.
 * In your Editor open the terminal and choose the folder you want to save this project in.
