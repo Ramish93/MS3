@@ -7,15 +7,15 @@
 
     <li>
         <div class="row">
-            {% for info in user_info %}
+            {% for info in preview %}
             <div class="col s3">
-                <a href="{{ url_for('edit_info', user_info_id='61112fe729f4533b1e36b90a')}} "
-                    class="btn-small green accent-4">Edit</a>
-                <a href="{{ url_for('delet_info', user_info_id='61112fe729f4533b1e36b90a')}}"
+                <a href="{{ url_for('edit_info', user_info_id=info._id )}}" class="btn-small green accent-4">Edit</a>
+                <a href="{{ url_for('delet_info', user_info_id=info._id)}}"
                     class="btn-small light-blue lighten-1">Delet</a>
             </div>
-            <div class="col s9">
-                <strong>{{ info.user_info.first_name }} {{ info.last_name }}</strong>
+
+            <form class="col s9" href="{{ url_for('cv_preview', user_info_id=info._id)}}" method="GET">
+                <strong>{{ info.first_name }} {{ info.last_name }}</strong>
                 <p>{{info.dob}} </p>
                 <p>{{ info.email }}</p>
                 <p>{{ info.education }}</p>
@@ -23,7 +23,7 @@
                 <p>{{ info.experience }}</p>
                 <p>{{ info.linkedin }}</p>
                 <p>{{ info.about }}</p>
-            </div>
+            </form>
             {% endfor %}
 
         </div>

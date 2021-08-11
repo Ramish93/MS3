@@ -1,6 +1,6 @@
 import os
 from flask import (
-    Flask, flash, render_template, Response,
+    Flask, flash, render_template, Response, make_response
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -83,10 +83,11 @@ def index():
             'linkdin': request.form.get('linkdin'),
             'about': request.form.get('about')
         }
-        mongo.db.user_info.insert(user_data)
+        preview_user = mongo.db.user_info.insert(user_data)
         flash('Resume successfully saved and is ready for preview')
-        return redirect(url_for('cv_preview'))
-    return render_template("index.html")
+        print(preview_user)
+        return redirect(url_for("cv_preview", user_info_id=preview_user))
+    return render_template('index.html')
 
 
 @app.route('/download')
@@ -108,8 +109,8 @@ def cv_preview(user_info_id):
     return render_template("cv_preview.html", preview=preview)
 
 
-@app.route('/edit_cv/<user_info_id>', methods=['GET', 'POST'])
-def edit_cv(user_info_id):
+@app.route('/edit_info/<user_info_id>', methods=['GET', 'POST'])
+def edit_info(user_info_id):
     if request.method == 'POST':
         info_update = {
             'first_name': request.form.get('first_name'),
@@ -134,22 +135,22 @@ def edit_cv(user_info_id):
 def delet_info(user_info_id):
     mongo.db.user_info.remove({'_id': ObjectId(user_info_id)})
     flash('Field successfully Deleted')
-    return redirect(url_for('download.html'))
+    return redirect(url_for('index'))
 
 
-# @app.route('/<first_name>/<last_name>/<dob>/<email>/<education>/<skills>/<experience>/<about>')
-# def pdf_gen(first_name, last_name, dob,email, education, skills, experience, about):
-#     render = render_template('cv_preview.html',first_name=first_name,
-#         last_name=last_name,dob=dob, email = email, education =education,
-#             skills=skills, experience = experience, about=about )
+@app.route('/<first_name>/<last_name>/<dob>/<email>/<education>/<skills>/<experience>/<about>')
+def pdf_gen(first_name, last_name, dob,email, education, skills, experience, about):
+    render = render_template('cv_preview.html',first_name=first_name,
+        last_name=last_name,dob=dob, email=email, education=education,
+            skills=skills, experience=experience, about=about)
 
-#     pdf = pdfkit.from_string(render, False)
+    pdf = pdfkit.from_string(render, False)
 
-#     responce = make_response(pdf)
-    # responce.headers['content-type'] = 'application/pdf'
-    # responce.headers['content-disposition'] = 'inline; filename = cv.pdf'
+    responce = make_response(pdf)
+    responce.headers['content-type'] = 'application/pdf'
+    responce.headers['content-disposition'] = 'inline; filename = cv.pdf'
 
-    # return responce
+    return responce
 
 
 

@@ -4,10 +4,10 @@
 <div class="row z-depth-4 ">
 
     <!--Form with self explainatory input fields-->
-    <form class="col s12" method="POST" action="{{ url_for('edit_info', user_info_id=user_info._id) }} ">
+    <form class="col s12" method="POST" action="{{ url_for('edit_info', user_info_id=info._id) }} ">
         <div class="row">
             <div class="input-field col s6">
-                <input id="first_name" name="first_name" type="text" class="validate" value="{{info.info_first_name}}"
+                <input id="first_name" name="first_name" type="text" class="validate" value="{{info.first_name}}"
                     required>
                 <label for="first_name">First Name:</label>
             </div>
@@ -63,7 +63,7 @@
         <!--Submits the data into db-->
         <div class="row ">
             <!-- cancel and return to preview -->
-            <a href="{{ url_for('cv_preview') }}" class="btn-large red col s4 offset-s1">
+            <a href="{{ url_for('cv_preview', user_info_id = info._id) }}" class="btn-large red col s4 offset-s1">
                 Cancel <i class="fas fa-times-circle right"></i>
             </a>
             <button type="submit" class="col s4 offset-s1 btn-large blue darken-4">
