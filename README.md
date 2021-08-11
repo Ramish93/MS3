@@ -92,6 +92,7 @@ I wanted to make first-time user see what this web-app is about without reading 
  ### __Features Left to Implement__:
  * I would love to improve this project with font-styling for user so they can easily make cv in desired fonts.
  * i would like to generate templates for users so they can choose between different templated.
+ * i tried to impliment functionality for downloading cv using a pyhton library named pdfkit but i ended up in more bugs in my code. i realized after trying to solve them that it will take me more time than one day (which i had left) to impliment the functionality. so the code i've written in pyhton file is still in there but i will definately build upon that code once the assessment is done on this project.
 ### Design Choices:
 * __Font:__ As mentioned above the scope of this web-app is ability to use data-base and relevent technologies to i relied on basic font which is quiet elegent and appealing.
  * __Icons:__ the choice of icon is relevent to the input fields accross all pages so it is very easy to see what an input is for.
@@ -135,9 +136,7 @@ I wanted to make first-time user see what this web-app is about without reading 
 ### __Bugs and fixes:__
 ![image of preview page](images/bugpreviewpage.png?raw=true "Title")
 * the preview page was not showing the data from mongo DB so user didn't have option to edit or delet it.
-
-### __Unfixed bugs__:
-* 
+* as it tuns out the variable and the argument in that function were mixed up with another function. and the object id was passed dynamically as argument, error was fixed after fixing these two things.
 
 ---
 ### __Testing__:
