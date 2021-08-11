@@ -90,11 +90,6 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/download')
-def download():
-    return render_template("download.html")
-
-
 @app.route('/logout')
 def logout():
     # removes session for user
@@ -138,23 +133,27 @@ def delet_info(user_info_id):
     return redirect(url_for('index'))
 
 
-@app.route('/<first_name>/<last_name>/<dob>/<email>/<education>/<skills>/<experience>/<about>')
-def pdf_gen(first_name, last_name, dob,email, education, skills, experience, about):
-    render = render_template('cv_preview.html',first_name=first_name,
-        last_name=last_name,dob=dob, email=email, education=education,
-            skills=skills, experience=experience, about=about)
+@app.route('/save_info/<user_info_id>')
+def save_info(user_info_id):
+    return redirect(url_for('index'))
 
-    pdf = pdfkit.from_string(render, False)
+# @app.route('/<first_name>/<last_name>/<dob>/<email>/<education>/<skills>/<experience>/<about>')
+# def pdf_gen(first_name, last_name, dob,email, education, skills, experience, about):
+#     render = render_template('cv_preview.html',first_name=first_name,
+#         last_name=last_name,dob=dob, email=email, education=education,
+#             skills=skills, experience=experience, about=about)
 
-    responce = make_response(pdf)
-    responce.headers['content-type'] = 'application/pdf'
-    responce.headers['content-disposition'] = 'inline; filename = cv.pdf'
+#     pdf = pdfkit.from_string(render, False)
 
-    return responce
+#     responce = make_response(pdf)
+#     responce.headers['content-type'] = 'application/pdf'
+#     responce.headers['content-disposition'] = 'inline; filename = cv.pdf'
+
+#     return responce
 
 
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
-            debug=True)
+            debug=False)

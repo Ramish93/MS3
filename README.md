@@ -2,7 +2,7 @@
 # CV Producer
 ## project name and summry of concept
 * As i am learning new technologies with the course it getting easier to use those technologies and make something useful with them on the web. so this project is a reflection of that. this is a simple site that takes user data from input fields provided and then save it in MongoDB with is a data-base and then on user commands it edits delets or updated that data user already inserted.
-## view live website [here.]()
+## view live website [here.](https://ms3-cv.herokuapp.com/)
 ---
 ## Table of Content:
 - [Overview](#overview)
@@ -146,7 +146,7 @@ I wanted to make first-time user see what this web-app is about without reading 
 
 * To ensure that the website is responsive across all pages i used. [Google Mobile Friendly Test](https://search.google.com/test/mobile-friendly?utm_source=gws&utm_medium=onebox&utm_campaign=suit). And the result is fully responsive.
 * Landing page,
- ![mobile friendly Landing page](images/responsivelogin.png?raw=true "Title")
+ ![mobile friendly Landing page](images/imagelanding.png?raw=true "Title")
 
 * Mobile friendly Login page:
  ![mobile friendly login](images/responsivelogin.png?raw=true "Title")
@@ -187,7 +187,7 @@ ___
 * The code can be run locally by selecting "clone" which provides an URL you can use on your local computer or "download" option where one can download the zip file on your computer.
 
 To work on this project with local IDE like VScode etc:
-* Follow this link to [CV producer](https://github.com/Ramish93/MS3.git).
+* Follow the github link provided with project submission.
 * Under the Repo name choose "Clone or Download".
 * Copy URL in HTTP section.
 * In your Editor open the terminal and choose the folder you want to save this project in.
@@ -207,4 +207,3 @@ To work on this project with local IDE like VScode etc:
 
 * the idea of the project is concieved by using the technologies learnt and trying to applying them in a realistic world app with easy userinterface and easy navigation. CV producer is a web-app which will take user input and convert it into cv pdf.
 * My Mentor, **Nishant Kumar**, for his guidance, help and advising me to understand what kind of design is better for user.
-* Tutor Support, for their efforts support, all the time and great atitude.
